@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const validator = require('validator');
 
-
+//Create our user schema
 const UserSchema = new Schema({
   name: {
     type: String,
@@ -28,4 +28,5 @@ const UserSchema = new Schema({
   }
 });
 
+//Create mongoose model. The mongoose.model() function of the mongoose module is used to create a collection of a particular database of MongoDB.
 module.exports = User =  mongoose.model('user', UserSchema);

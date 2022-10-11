@@ -1,14 +1,16 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+//categoryEmun defines all our existing categories
 const categoryEnum = require('../data/categories');
 
+//create our product schema
 const ProductSchema = new Schema({
-  product_id: {
+  productId: {
     type: String,
     required: true,
     unique: true
   },
-  product_name: {
+  productName: {
     type: String,
     required: true
   },
@@ -31,4 +33,5 @@ const ProductSchema = new Schema({
   }
 });
 
+//create mongoose model. The mongoose.model() function of the mongoose module is used to create a collection of a particular database of MongoDB.
 module.exports = product = mongoose.model('product', ProductSchema);
