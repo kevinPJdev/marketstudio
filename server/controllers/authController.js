@@ -31,7 +31,7 @@ const signup = (req, res) => {
                 {expiresIn: 3600},
                 (err, token) => {
                   if (err) throw new Error('Problem with JWT token generation. Please check.');
-                  res.json({
+                  res.status(201).json({
                     token,
                     user: {
                       id: user._id,
@@ -69,7 +69,7 @@ const login = (req, res) => {
             {expiresIn: 3600}, 
             (token, err) => {
               if(err) return res.status(400).json({msg: "Issue with JWT token"});
-              res.json({
+              res.status(200).json({
                 token,
                 user: {
                   id: user._id,

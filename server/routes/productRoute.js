@@ -4,7 +4,7 @@ const router = express.Router();
 const productController = require('../controllers/productController');
 const { route } = require('./authRoute');
 
-router.get('/products', productController.getProduct);
+router.get('/products', productController.getProducts);
 router.post('/products', productController.postProduct);
 router.put('/products/:id', productController.updateProduct);
 router.delete('/products/:id', productController.deleteProduct);

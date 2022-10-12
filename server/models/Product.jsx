@@ -5,11 +5,6 @@ const categoryEnum = require('../data/categories');
 
 //create our product schema
 const ProductSchema = new Schema({
-  productId: {
-    type: String,
-    required: true,
-    unique: true
-  },
   productName: {
     type: String,
     required: true
