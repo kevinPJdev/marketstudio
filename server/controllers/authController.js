@@ -51,6 +51,36 @@ const login = (req, res) => {
   const {email, password} = req.body;
 
   if(!email || !password) {
-    res.status(400).json({msg: "Please enter all login fields"});
+    return res.status(400).json({msg: "Please enter all login fields"});
   }
+
+  User.findOne({email})
+    .then(user => {
+      if(!user) {
+        return res.status(400).json({msg: "User not found"});
+      }
+      bcrypt.compare(password, user.password)
+        .then(isMatch => {
+          if(!isMatch) return res.status(400).json({msg: "Incorrect Credentials"});
+
+          jwt.sign(
+            {id: user._id},
+            config.get('jwtsecret'),
+            {expiresIn: 3600}, 
+            (token, err) => {
+              if(err) return res.status(400).json({msg: "Issue with JWT token"});
+              res.json({
+                token,
+                user: {
+                  id: user._id,
+                  name: user.name,
+                  email: user.email
+                }
+              })
+            }
+          )
+        })
+    })
 }
+
+module.exports = {signup, login}
