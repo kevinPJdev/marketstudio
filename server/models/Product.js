@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 //categoryEmun defines all our existing categories
-const categoryEnum = require('../data/categories');
 
 //create our product schema
 const ProductSchema = new Schema({
@@ -15,7 +14,7 @@ const ProductSchema = new Schema({
   },
   category: {
     type: String,
-    enum: categoryEnum
+    enum: ['electronics', 'beauty', 'books', 'toys and games', 'grocery']
   },
   price: {
     type: Number,
