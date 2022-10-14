@@ -1,1 +1,1 @@
-export default categoriesEnum = ['electronics', 'beauty', 'books, toys and games', 'grocery']
+export default categoriesEnum = ['electronics', 'beauty', 'books', 'toys and games', 'grocery']
