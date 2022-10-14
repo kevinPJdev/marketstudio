@@ -83,4 +83,10 @@ const login = (req, res) => {
     })
 }
 
-module.exports = {signup, login}
+const getUser = (req,res) => {
+  User.findById(req.user.id)
+      .select('-password')
+      .then(user => res.json(user));
+}
+
+module.exports = {signup, login, getUser}

@@ -2,7 +2,7 @@ const Order = require('../models/Order');
 const Cart = require('../models/Cart');
 const User = require('../models/User');
 const config = require('config');
-const stripe = require('stripe')(config.get('StripeAPIKey'));
+const stripe = require('stripe')(config.get('stripeTestKey'));
 
 const getOrders = (req, res) => {
   Order.findOne({userId: req.params.id}).sort({date: -1})
