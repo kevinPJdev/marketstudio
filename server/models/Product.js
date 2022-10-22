@@ -3,6 +3,8 @@ const Schema = mongoose.Schema;
 //categoryEmun defines all our existing categories
 
 //create our product schema
+
+//Men's 
 const ProductSchema = new Schema({
   productName: {
     type: String,

@@ -11,6 +11,9 @@ const orderRoutes = require('./routes/orderRoute');
 const app = express();
 app.use(express.json());
 
+app.get('/', (req, res) => {
+  res.status(200).send("Hit the route");
+})
 app.use('/api',authRoutes);
 app.use('/api',productRoutes);
 app.use('/api',cartRoutes);
